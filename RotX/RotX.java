@@ -8,7 +8,7 @@ public class RotX {
             if(Character.isLetter(cadena.charAt(i))) {
                 if(Character.isUpperCase(cadena.charAt(i))) {
                     for (int j = 0; j < ALFABET_MAJ.length; j++) {
-                        if (ALFABET_MAJ[j] )
+                        if (ALFABET_MAJ[j] == )
 
                     }
                 }
