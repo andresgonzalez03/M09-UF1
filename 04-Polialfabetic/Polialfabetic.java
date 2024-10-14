@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Polialfabetic {
-    private static final int clauSecreta = 328972;
+    private static final int clauSecreta = 1357967;
     private static final char[] ALFABET = "AÁÀÄBCÇDEÉÈËFGHIÍÌÏJKLMNÑOÓÒÖPQRSTUÚÙÜVWXYZ".toCharArray();
     private static Random random;
     public static void main(String[] args) {
@@ -44,18 +44,17 @@ public class Polialfabetic {
         return alfabetCharacter;  
     }
     public static String xifraPoliAlfa(String cadena) {
-        initRandom(clauSecreta);
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < cadena.length(); i++) {
-            char c = cadena.charAt(i);
-            char [] alfabetPermutat = permutaAlfabet(ALFABET);
+        char[] cadenaArray = cadena.toCharArray();
+        for(char c : cadenaArray) {
+            char[] alfabetPermutat = permutaAlfabet(ALFABET);
             if(Character.isLetter(c)) {
-                for(int j = 0; j<ALFABET.length; j++) {
-                    if(ALFABET[j]==Character.toUpperCase(c)) {
+                for(int i = 0; i<ALFABET.length; i++) {
+                    if(ALFABET[i]==Character.toUpperCase(c)) {
                         if(Character.isUpperCase(c)) {
-                            sb.append(Character.toUpperCase(alfabetPermutat[j]));
+                            sb.append((alfabetPermutat[i]));
                         } else {
-                            sb.append(Character.toLowerCase(alfabetPermutat[j]));
+                            sb.append(Character.toLowerCase(alfabetPermutat[i]));
                         }
                         break;
                     }
@@ -67,18 +66,17 @@ public class Polialfabetic {
         return sb.toString();
     }
     public static String desxifraPoliAlfa(String cadena) {
-        initRandom(clauSecreta);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < cadena.length(); i++) {
-            char c = cadena.charAt(i);
+        char[] cadenaNormal = cadena.toCharArray();
+        for (char c: cadenaNormal) {
             char[] alfabetPermutat = permutaAlfabet(ALFABET);
             if (Character.isLetter(c)) {
-                for (int j = 0; j < alfabetPermutat.length; j++) {
-                    if (alfabetPermutat[j] == Character.toUpperCase(c)) {
+                for (int i = 0; i < alfabetPermutat.length; i++) {
+                    if (alfabetPermutat[i] == Character.toUpperCase(c)) {
                         if (Character.isUpperCase(c)) {
-                            sb.append(ALFABET[j]);
+                            sb.append(ALFABET[i]);
                         } else {
-                            sb.append(Character.toLowerCase(ALFABET[j]));
+                            sb.append(Character.toLowerCase(ALFABET[i]));
                         }
                         break;
                     }
